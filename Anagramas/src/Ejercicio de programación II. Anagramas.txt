@@ -1,0 +1,70 @@
+Ejercicio de programación II. Anagramas
+Límite de entrega: martes, 27 de octubre de 2015, 23:55
+Número máximo de ficheros: 3
+Tipo de trabajo: Trabajo individual
+
+Escribir un programa que genere todas las palabras (con significado o no) posibles y diferentes a partir de las letras de una palabra dada por la entrada estándar. La palabra puede tener letras repetidas mayúsculas y minúsculas y no se debe generar la misma palabra más de una vez. Las palabras solución deberán ser imprimidas en la salida estándar en orden alfabético ascendente. No se distingue entre mayúsculas y minúsculas a la hora de considerar dos palabras iguales pero no se deben perder las letras mayúsculas porque en el orden en el que se deben dar los anagramas generados la letra mayúscula va antes en el orden alfabético que su correspondiente letra minúscula. Así se deberán mantener las letras mayúsculas existentes en la entrada para generar en el orden adecuado la salida.
+
+Entrada
+
+La entrada consistirá en varias palabras. La primera línea contendrá un número entero positivo indicando el número de palabras que siguen. A continuación vendrá una palabra por línea. Una palabra podrá contener letras mayúsculas y minúsculas sin acentuar.
+
+Salida
+
+Por cada palabra de entrada se imprimirán las palabras distintas que se pueden formar, una por línea, y en orden alfabético ascendente.
+
+Ejemplo
+
+Entrada
+
+1
+
+abc
+
+Salida
+
+abc
+
+acb
+
+bac
+
+bca
+
+cab
+
+cba
+
+English version
+
+You have to write a program to generate all possible different words from the letters belonging to a given word from the standard input. In the input word, some letters may appear more than once. For a given word, your program should not produce the same word more than once, and the words should be output in alphabetically ascending order.
+
+Input
+
+The input  consists of several words. The first line contains a number giving the number of words to follow. Each following line contains one word. A word consists of uppercase or lowercase letters from A to Z. Uppercase and lowercase letters are not to be considered different (that means the word "Aa" is not different from "aA") but in the alphabetical order the uppercase letter go before that its lowercase letter. So you need to keep uppercase letters to generate the different words in an adequate order.
+
+Output
+
+For each word in the input, the output  should contain all different words that can be generated with the letters of the given word. The words generated from the same input word should be output in alphabetically ascending order. An upper case letter goes before the corresponding lower case letter.
+
+Example
+
+Input
+
+1
+
+abc
+
+Output
+
+abc
+
+acb
+
+bac
+
+bca
+
+cab
+
+cba
