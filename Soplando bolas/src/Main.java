@@ -15,57 +15,57 @@ public class Main {
 		//fijo las posiciones objetivo
 		int posicionesObj = teclado.nextInt();
 		if(posicionesObj > filas*columnas){
-			System.out.println("Entrada errónea.");
+		    	System.out.println("Entrada errónea.");
 		}else{
-			int objetivos[][] = new int[posicionesObj][2];
-			for(int i = 0; i < posicionesObj; i++){
-				objetivos[i][0] = teclado.nextInt();	//fila
-				objetivos[i][1] = teclado.nextInt();	//columna
-			}
-			tablero.setObjetivos(objetivos);
-			int id = 0;
-			while(teclado.hasNextInt()){
-				id++;	//a cada vuelta lo incremento, y empieza en 1
-				tablero.addBola(new Bola(id, teclado.nextInt()-1, teclado.nextInt()-1));
-			}
-			
-			//el programa solo funciona si hay el mismo numero de posiciones objetivo que de bolas, si hay menos bolas que casillas,
-			//
-			if(posicionesObj != id || id > filas*columnas || 1 > (filas*columnas)){
-				System.out.println("Entrada errónea.");
-			}//quitar este else if si a parte de [] hay que dar mas
-			else if(tablero.esSolucion()){
-				System.out.println("[]");
-			}else{
-			
-				tablero.setNumeroDeBolas(id);
-			
-				//ARRAY AL QUE SE VAN AÑADIENDO LAS POSIBLES SOLUCIONES
-				ArrayList <Tablero> movimientos = new ArrayList<Tablero>();
-				
-				movimientos.add(tablero);
-				
-				resolver(movimientos, SOLUCIONES, 0);	//empieza en el indice 0 del arraylist, que es el tablero inicial
-				
-				//imprimir soplidos formato [x, x, x, x], si no hay soplidos se imprime []
-
-				if(SOLUCIONES.isEmpty()){
-					System.out.println("Rompecabezas sin solución.");
-				}else{
-					if(tablero.esSolucion()){
-						System.out.println("[]");
-					}
-					String[] cadena = aCadena(SOLUCIONES);//si hay que dar [] y mas se pone aqui el print
-					Arrays.sort(cadena);
-					for(int k = 0; k < cadena.length; k++){
-						//System.out.println(SOLUCIONES.get(k));
-						System.out.println(cadena[k]);
-					}
-					//System.out.println("Número de soluciones: " + cadena.length);
-				}
-			}
+		    
+		int objetivos[][] = new int[posicionesObj][2];
+		for(int i = 0; i < posicionesObj; i++){
+			objetivos[i][0] = teclado.nextInt();	//fila
+			objetivos[i][1] = teclado.nextInt();	//columna
+		}
+		tablero.setObjetivos(objetivos);
+		int id = 0;
+		while(teclado.hasNextInt()){
+			id++;	//a cada vuelta lo incremento, y empieza en 1
+			tablero.addBola(new Bola(id, teclado.nextInt()-1, teclado.nextInt()-1));
 		}
 		
+		//el programa solo funciona si hay el mismo numero de posiciones objetivo que de bolas, si hay menos bolas que casillas,
+		//
+		if(posicionesObj != id || id > (filas*columnas) || 1 > (filas*columnas)){
+			System.out.println("Entrada errónea.");
+		}//quitar este else if si a parte de [] hay que dar mas
+		else if(tablero.esSolucion()){
+			System.out.println("[]");
+		}else{
+		
+			tablero.setNumeroDeBolas(id);
+		
+			//ARRAY AL QUE SE VAN AÑADIENDO LAS POSIBLES SOLUCIONES
+			ArrayList <Tablero> movimientos = new ArrayList<Tablero>();
+			
+			movimientos.add(tablero);
+			
+			resolver(movimientos, SOLUCIONES, 0);	//empieza en el indice 0 del arraylist, que es el tablero inicial
+			
+			//imprimir soplidos formato [x, x, x, x], si no hay soplidos se imprime []
+
+			if(SOLUCIONES.isEmpty()){
+				System.out.println("Rompecabezas sin solución.");
+			}else{
+				if(tablero.esSolucion()){
+					System.out.println("[]");
+				}
+				String[] cadena = aCadena(SOLUCIONES);//si hay que dar [] y mas se pone aqui el print
+				Arrays.sort(cadena);
+				for(int k = 0; k < cadena.length; k++){
+					//System.out.println(SOLUCIONES.get(k));
+					System.out.println(cadena[k]);
+				}
+				//System.out.println("Número de soluciones: " + cadena.length);
+			}
+		}
+		}
 		teclado.close();
 	}
 	
