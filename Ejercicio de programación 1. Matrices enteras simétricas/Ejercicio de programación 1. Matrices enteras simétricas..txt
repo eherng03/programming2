@@ -1,0 +1,31 @@
+Ejercicio de programación 1. Matrices enteras simétricas.
+Disponible desde: martes, 6 de octubre de 2015, 16:00
+Límite de entrega: martes, 13 de octubre de 2015, 17:00
+Número máximo de ficheros: 1
+Tipo de trabajo: Trabajo individual
+
+Se deberá crear un programa que tome una matriz de enteros mayores o iguales que cero por la entrada estándar e indique por la salida estándar si su raíz cuadrada entera es simétrica o no.
+
+La raíz cuadrada entera de un número entero positivo  x es el mayor número entero r tal que r2<= x. La raíz cuadrada entera de una matriz se calcula punto a punto, es decir es la raíz cuadrada entera de cada uno de sus elementos.
+
+El ejercicio se valorará mediante tests hasta el 50% de su puntuación. Si además el programa no contiene ningún bucle for o while  se duplicará su puntuación. La revisión de si el programa contiene o no bucles iterativos se realizará también automáticamente por lo que el alumno que no use bucles de este tipo deberá asegurarse que no incluye palabras como for o while en cualquier parte de código.
+
+La entrada contendrá la dimensión de la matriz en una línea separada y a continuación dará los elementos de la matriz en una línea por cada fila de la misma, separando cada elemento de cada columna de la fila por un blanco.
+
+La salida será de la siguiente forma:
+
+    En una línea completa (finalizada en fin de línea) ell texto "Entrada errónea." si por cualquier circunstancia la entrada no es adecuada para ejecutar el programa.
+    En una línea completa el texto "Es simétrica la raíz cuadrada entera de la matriz de entrada." si la matriz de entrada cumple que su raíz cuadrada entera es simétrica.
+    En una línea completa el texto "No es simétrica la raíz cuadrada entera de la matriz de entrada." en otro caso
+
+Ejemplo
+Entrada
+
+3
+1 2 3
+2 3 1
+3 2 1
+
+Salida
+
+Es simétrica la raíz cuadrada entera de la matriz de entrada.
