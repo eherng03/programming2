@@ -1,0 +1,341 @@
+Ejercicio de programación IV. En la barbería.
+Límite de entrega: miércoles, 9 de diciembre de 2015, 09:00
+Ficheros requeridos: Barberia.java, Barbero.java, Cliente.java (Descargar)
+Número máximo de ficheros: 5
+Tipo de trabajo: Trabajo individual
+
+Una barbería dispone de varios barberos y de varias sillas de espera para los clientes. Si no hay clientes los barberos se ponen a dormir. Si llega un cliente y no hay nadie esperando despierta a un barbero y éste le corta el pelo. Si en cambio todos los barberos están ocupados el cliente espera en una silla si hay alguna libre, sino se va. Los barberos a medida que terminan su trabajo sobre un cliente eligen al siguiente cliente que más tiempo lleva esperando.
+
+Se pide un programa en java que simule el funcionamiento de la barbería. Los barberos se identificarán por letras mayúsculas, A, B, C, ...  del alfabeto inglés, siendo 1 <= n<=26 el número de barberos. Los clientes se identificarán por números 1, 2, 3, ... siendo 1 <= m <= 100 el número de clientes. El programa se ejecutará durante t segundos cumpliendo que nunca un barbero puede estar atendiendo a más de un cliente y que la barbería tiene un número limitado de sillas de espera y cada una sólo puede usarse por un cliente. El alumno deberá implementar y entregar las clases Cliente, Barbero y Barberia, dejando la clase Main (descargarla) tal como está. Se podrán usar más clases si se considera necesario. La clase Main no debe subirse en la entrega.
+
+No se podrá usar el paquete java.util.concurrent ni ninguno de sus subpaquetes. Se anularán las prácticas que los usen. 
+
+El programa deberá lanzar los siguientes mensajes por la salida estándar, donde i representa el identificador de un barbero y j el identificador de un cliente:
+
+    El barbero i se ha creado.
+    El barbero i se pone a dormir.
+    El barbero i atiende al cliente j.
+    El barbero i ha cortado el pelo al cliente j.
+    El barbero i ha sido destruido.
+    El cliente j se ha creado.
+    El cliente j llega a la barbería.
+    El cliente j se marcha sin ser atendido.
+    El cliente j se sienta en una silla de espera.
+    El cliente j ha sido destruido.
+
+Cada cliente va a la  barbería cada cierto tiempo y ese tiempo sigue una distribución normal de media ? y desviación típica ?. Cada barbero tarde en cortar el pelo a un cliente un tiempo que sigue una distribución exponencial de parámetro ?. Para calcular esos tiempos se generarán números que siguen esas distribuciones y para ello se usará el paquete org.apache.commons.math3.distribution incluido en la librería Apache Commons Math que puede descargarse de http://commons.apache.org/proper/commons-math/download_math.cgi.
+
+Entrada
+
+La entrada vendrá dada de la siguiente forma:
+
+    1ª línea: el número de barberos n y el número de clientes m.
+    2ª línea: el tiempo en segundos t de simulación.
+    3ª línea: los parámetros media ? y desviación típica ?  (en milisegundos) de la distribución normal que modeliza el tiempo de espera de los clientes para ir a la barbería.
+    4ª línea: el parámetro ? (en milisegundos) de la distribución exponencial que modelista el tiempo que tarda un barbero en cortar el pelo.
+    5ª línea: el número de sillas disponibles en la barbería.
+
+Salida
+
+Los mensajes indicados más arriba, cada uno en una línea completa.
+
+Ejemplo (Ver ejemplo después del texto en inglés)
+
+English Translation
+
+A barbershop has several chairs and several barbers waiting for customers. If no customers the barbers  go to sleep. If a customer comes and no one is waiting awakens a barber and he cuts his/her hair. If instead all barbers are busy the customer expects in a chair if there is any free. When barbers finish their work on a client choose the next customer waiting longest.
+
+You have to build a Java program that simulates the operation of the barbershop. Barbers are identified by capital letters A, B, C, ... of the English alphabet, and the number of barbers is 1 <= n<=26. Customers are identified by numbers 1, 2, 3, ... m where 1 <= m <= 100 is the number of customers. The program will run during t seconds. A barber can never be serving more than one customer simultaneously and the barbershop has limited waiting chairs and each can only be used by a customer. The student must implement the Cliente, Barberia and Barbero classes, leaving the Main (download) class as it is. It is possible to use more classes if deemed necessary. The class must not upload with your solution. 
+
+You can not use the java.util.concurrent package or any of its subpackages. Programs using these packages will be disallow.
+
+The program will launch the following messages to stdout, where i represents a barber identifier  and j a client identifier:
+
+    El barbero i se ha creado.
+    El barbero i se pone a dormir.
+    El barbero i atiende al cliente j.
+    El barbero i ha cortado el pelo al cliente j.
+    El barbero i ha sido destruido.
+    El cliente j se ha creado.
+    El cliente j llega a la barbería.
+    El cliente j se marcha sin ser atendido.
+    El cliente j se sienta en una silla de espera.
+    El cliente j ha sido destruido.
+
+
+Each customer goes to the barbershop every so often and this time follows a normal distribution with mean ? and standard deviation ?. Each barber cutting a customer's hair takes time following an exponential distribution of parameter ?. To calculate these times numbers following these distributions will be generated and thereby the program must included  the library org.apache.commons.math3.distribution from the Apache Commons Math package which can be downloaded from  http://commons.apache.org/proper/commons-math/download_math.cgi.
+
+Input
+
+The input is given as follows:
+
+1st line: the number of barbers n and the number of customers m.
+2nd line: the simulation time t in seconds.
+3rd line: the parameters mean ? and standard deviation ? (in milliseconds) of the normal distribution that models the waiting time for customers to go to the barbershop.
+4th line: the ? parameter (in milliseconds) of the exponential distribution modelling the time it takes a barber to cut the hair.
+5th line: the number of seats available at the barbershop.
+
+
+Output
+
+The messages indicated above, each in a full line.
+
+Ejemplo
+
+Entrada
+
+2 10
+
+1 
+
+100 50
+
+30
+
+5
+
+Salida
+
+El barbero A se ha creado.
+El barbero B se ha creado.
+El barbero A se pone a dormir.
+El cliente 1 se ha creado.
+El barbero B se pone a dormir.
+El cliente 2 se ha creado.
+El cliente 3 se ha creado.
+El cliente 4 se ha creado.
+El cliente 5 se ha creado.
+El cliente 6 se ha creado.
+El cliente 1 llega a la barbería.
+El cliente 7 se ha creado.
+El barbero A atiende al cliente 1.
+El cliente 8 se ha creado.
+El cliente 9 se ha creado.
+El cliente 10 se ha creado.
+El cliente 6 llega a la barbería.
+El barbero B atiende al cliente 6.
+El barbero B ha cortado el pelo al cliente 6.
+El barbero B se pone a dormir.
+El barbero A ha cortado el pelo al cliente 1.
+El barbero A se pone a dormir.
+El cliente 5 llega a la barbería.
+El barbero A atiende al cliente 5.
+El barbero A ha cortado el pelo al cliente 5.
+El barbero A se pone a dormir.
+El cliente 10 llega a la barbería.
+El barbero A atiende al cliente 10.
+El cliente 6 llega a la barbería.
+El barbero B atiende al cliente 6.
+El barbero B ha cortado el pelo al cliente 6.
+El barbero B se pone a dormir.
+El cliente 3 llega a la barbería.
+El barbero B atiende al cliente 3.
+El cliente 2 llega a la barbería.
+El cliente 2 se sienta en una silla de espera.
+El cliente 9 llega a la barbería.
+El cliente 9 se sienta en una silla de espera.
+El cliente 7 llega a la barbería.
+El cliente 7 se sienta en una silla de espera.
+El cliente 4 llega a la barbería.
+El cliente 4 se sienta en una silla de espera.
+El barbero B ha cortado el pelo al cliente 3.
+El barbero B atiende al cliente 2.
+El barbero A ha cortado el pelo al cliente 10.
+El barbero A atiende al cliente 9.
+El barbero B ha cortado el pelo al cliente 2.
+El cliente 8 llega a la barbería.
+El cliente 8 se sienta en una silla de espera.
+El barbero B atiende al cliente 7.
+El barbero A ha cortado el pelo al cliente 9.
+El barbero A atiende al cliente 4.
+El barbero A ha cortado el pelo al cliente 4.
+El barbero A atiende al cliente 8.
+El barbero A ha cortado el pelo al cliente 8.
+El barbero B ha cortado el pelo al cliente 7.
+El barbero A se pone a dormir.
+El barbero B se pone a dormir.
+El cliente 2 llega a la barbería.
+El barbero A atiende al cliente 2.
+El barbero A ha cortado el pelo al cliente 2.
+El barbero A se pone a dormir.
+El cliente 10 llega a la barbería.
+El barbero A atiende al cliente 10.
+El cliente 1 llega a la barbería.
+El barbero B atiende al cliente 1.
+El barbero B ha cortado el pelo al cliente 1.
+El barbero B se pone a dormir.
+El cliente 3 llega a la barbería.
+El barbero B atiende al cliente 3.
+El barbero A ha cortado el pelo al cliente 10.
+El barbero A se pone a dormir.
+El cliente 6 llega a la barbería.
+El cliente 5 llega a la barbería.
+El cliente 5 se sienta en una silla de espera.
+El barbero A atiende al cliente 6.
+El barbero B ha cortado el pelo al cliente 3.
+El barbero B atiende al cliente 5.
+El barbero A ha cortado el pelo al cliente 6.
+El barbero A se pone a dormir.
+El barbero B ha cortado el pelo al cliente 5.
+El barbero B se pone a dormir.
+El cliente 9 llega a la barbería.
+El barbero A atiende al cliente 9.
+El cliente 10 llega a la barbería.
+El barbero B atiende al cliente 10.
+El cliente 8 llega a la barbería.
+El cliente 8 se sienta en una silla de espera.
+El cliente 4 llega a la barbería.
+El cliente 4 se sienta en una silla de espera.
+El cliente 5 llega a la barbería.
+El cliente 5 se sienta en una silla de espera.
+El cliente 2 llega a la barbería.
+El cliente 2 se sienta en una silla de espera.
+El barbero A ha cortado el pelo al cliente 9.
+El cliente 1 llega a la barbería.
+El cliente 1 se sienta en una silla de espera.
+El cliente 3 llega a la barbería.
+El cliente 3 se sienta en una silla de espera.
+El barbero A atiende al cliente 8.
+El cliente 9 llega a la barbería.
+El cliente 9 se marcha sin ser atendido.
+El cliente 6 llega a la barbería.
+El cliente 6 se marcha sin ser atendido.
+El barbero B ha cortado el pelo al cliente 10.
+El barbero B atiende al cliente 4.
+El barbero B ha cortado el pelo al cliente 4.
+El barbero B atiende al cliente 5.
+El barbero A ha cortado el pelo al cliente 8.
+El barbero A atiende al cliente 2.
+El barbero B ha cortado el pelo al cliente 5.
+El barbero B atiende al cliente 1.
+El cliente 9 llega a la barbería.
+El cliente 9 se sienta en una silla de espera.
+El barbero A ha cortado el pelo al cliente 2.
+El barbero A atiende al cliente 3.
+El barbero B ha cortado el pelo al cliente 1.
+El barbero B atiende al cliente 9.
+El cliente 7 llega a la barbería.
+El cliente 7 se sienta en una silla de espera.
+El cliente 2 llega a la barbería.
+El cliente 2 se sienta en una silla de espera.
+El cliente 6 llega a la barbería.
+El cliente 6 se sienta en una silla de espera.
+El barbero A ha cortado el pelo al cliente 3.
+El barbero A atiende al cliente 7.
+El barbero A ha cortado el pelo al cliente 7.
+El barbero A atiende al cliente 2.
+El barbero A ha cortado el pelo al cliente 2.
+El barbero A atiende al cliente 6.
+El barbero A ha cortado el pelo al cliente 6.
+El barbero A se pone a dormir.
+El cliente 10 llega a la barbería.
+El barbero A atiende al cliente 10.
+El barbero B ha cortado el pelo al cliente 9.
+El barbero B se pone a dormir.
+El cliente 8 llega a la barbería.
+El cliente 5 llega a la barbería.
+El cliente 5 se sienta en una silla de espera.
+El barbero B atiende al cliente 8.
+El cliente 3 llega a la barbería.
+El cliente 3 se sienta en una silla de espera.
+El cliente 4 llega a la barbería.
+El cliente 4 se sienta en una silla de espera.
+El cliente 1 llega a la barbería.
+El cliente 1 se sienta en una silla de espera.
+El barbero B ha cortado el pelo al cliente 8.
+El barbero B atiende al cliente 5.
+El barbero B ha cortado el pelo al cliente 5.
+El barbero B atiende al cliente 3.
+El cliente 9 llega a la barbería.
+El cliente 9 se sienta en una silla de espera.
+El barbero A ha cortado el pelo al cliente 10.
+El cliente 7 llega a la barbería.
+El cliente 7 se sienta en una silla de espera.
+El barbero A atiende al cliente 4.
+El barbero A ha cortado el pelo al cliente 4.
+El barbero A atiende al cliente 1.
+El barbero B ha cortado el pelo al cliente 3.
+El barbero A ha cortado el pelo al cliente 1.
+El barbero B atiende al cliente 9.
+El barbero A atiende al cliente 7.
+El barbero B ha cortado el pelo al cliente 9.
+El barbero B se pone a dormir.
+El cliente 6 llega a la barbería.
+El cliente 8 llega a la barbería.
+El cliente 8 se sienta en una silla de espera.
+El barbero B atiende al cliente 6.
+El cliente 2 llega a la barbería.
+El cliente 2 se sienta en una silla de espera.
+El barbero B ha cortado el pelo al cliente 6.
+El barbero B atiende al cliente 8.
+El cliente 5 llega a la barbería.
+El cliente 5 se sienta en una silla de espera.
+El barbero A ha cortado el pelo al cliente 7.
+El barbero A atiende al cliente 2.
+El cliente 4 llega a la barbería.
+El cliente 4 se sienta en una silla de espera.
+El cliente 10 llega a la barbería.
+El cliente 10 se sienta en una silla de espera.
+El barbero A ha cortado el pelo al cliente 2.
+El barbero A atiende al cliente 5.
+El barbero B ha cortado el pelo al cliente 8.
+El barbero B atiende al cliente 4.
+El cliente 9 llega a la barbería.
+El cliente 9 se sienta en una silla de espera.
+El barbero A ha cortado el pelo al cliente 5.
+El barbero A atiende al cliente 10.
+El cliente 7 llega a la barbería.
+El cliente 7 se sienta en una silla de espera.
+El cliente 1 llega a la barbería.
+El cliente 1 se sienta en una silla de espera.
+El barbero B ha cortado el pelo al cliente 4.
+El barbero B atiende al cliente 9.
+El cliente 3 llega a la barbería.
+El cliente 3 se sienta en una silla de espera.
+El barbero B ha cortado el pelo al cliente 9.
+El barbero B atiende al cliente 7.
+El cliente 6 llega a la barbería.
+El cliente 6 se sienta en una silla de espera.
+El barbero A ha cortado el pelo al cliente 10.
+El cliente 8 llega a la barbería.
+El cliente 8 se sienta en una silla de espera.
+El cliente 2 llega a la barbería.
+El cliente 2 se sienta en una silla de espera.
+El cliente 9 llega a la barbería.
+El cliente 9 se sienta en una silla de espera.
+El cliente 5 llega a la barbería.
+El cliente 5 se marcha sin ser atendido.
+El cliente 4 llega a la barbería.
+El cliente 4 se marcha sin ser atendido.
+El barbero B ha cortado el pelo al cliente 7.
+El barbero B atiende al cliente 3.
+El cliente 10 llega a la barbería.
+El cliente 10 se sienta en una silla de espera.
+El cliente 4 llega a la barbería.
+El cliente 4 se marcha sin ser atendido.
+El barbero B ha cortado el pelo al cliente 3.
+El barbero B atiende al cliente 6.
+El barbero B ha cortado el pelo al cliente 6.
+El barbero B atiende al cliente 8.
+El cliente 4 llega a la barbería.
+El cliente 4 se sienta en una silla de espera.
+El barbero B ha cortado el pelo al cliente 8.
+El barbero B atiende al cliente 2.
+El barbero B ha cortado el pelo al cliente 2.
+El barbero B atiende al cliente 9.
+El barbero B ha cortado el pelo al cliente 9.
+El barbero B atiende al cliente 10.
+El cliente 7 llega a la barbería.
+El cliente 7 se sienta en una silla de espera.
+El cliente 3 ha sido destruido.
+El cliente 8 ha sido destruido.
+El barbero B ha sido destruido.
+El cliente 1 ha sido destruido.
+El cliente 9 ha sido destruido.
+El cliente 6 ha sido destruido.
+El cliente 7 ha sido destruido.
+El cliente 5 ha sido destruido.
+El cliente 4 ha sido destruido.
+El cliente 10 ha sido destruido.
+El barbero A ha sido destruido.
+El cliente 2 ha sido destruido.
